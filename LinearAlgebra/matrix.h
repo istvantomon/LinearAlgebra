@@ -6,6 +6,8 @@
 
 const double zero_error = 1e-6;
 const int double_precision = 2;
+bool IsZero(double x);
+
 
 class Matrix
 {
@@ -14,6 +16,8 @@ private:
 	int n;
 public:
 	std::vector<std::vector<double>> a;
+	std::vector<char> variableNames;
+	bool bAugmented=false;
 	Matrix(int m0, int n0) {
 		m = m0; 
 		n = n0;
@@ -66,7 +70,19 @@ public:
 		}
 		return Res;
 	}
+	Matrix operator*(const double x) const
+	{
+		Matrix Res(m, n);
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < n; j++)
+				Res.a[i][j] = x*a[i][j];
+		}
+		return Res;
+	}
 };
 
 std::string double_to_string(double x, int precision);
-bool IsZero(double x);
+//Given rows of equations, creates augmented matrix
+//A valid equation is of the form 5a+7c-9x=4.5
+Matrix CreateAugmentedMatrix(std::vector<std::string> equs); 

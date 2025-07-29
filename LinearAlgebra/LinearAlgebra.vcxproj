@@ -127,13 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="charpoly.cpp" />
     <ClCompile Include="GaussElimination.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="matrix.cpp" />
+    <ClCompile Include="polynomial.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="charpoly.h" />
     <ClInclude Include="GaussElimination.h" />
     <ClInclude Include="matrix.h" />
+    <ClInclude Include="polynomial.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
